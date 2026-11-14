@@ -1,2 +1,2 @@
 # -
-象棋软件功能的实现，基于 HTML+CSS+JavaScript 实现的中国象棋网页小游戏，支持本地双人对弈，纯前端中国象棋，实现棋盘绘制、棋子移动、基础走棋校验，无需后端
+Implementation of Chinese chess software functions: a web-based Chinese chess mini-game built with HTML+CSS+JavaScript. It supports local two-player matches and is a pure front-end Chinese chess project. It realizes chessboard rendering, piece movement and basic move validation, with no back-end required.

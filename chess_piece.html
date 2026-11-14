@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立体象棋棋子示例</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0e6d2; /* 仿实木棋盘背景色 */
+            margin: 0;
+            gap: 50px;
+        }
+
+        /* 棋子通用样式 */
+        .chess-piece {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            font-family: "楷体", "KaiTi", "STKaiti", serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            user-select: none;
+        }
+
+        /* 红方棋子样式 */
+        .chess-piece.red {
+            /* 径向渐变模拟凸起的立体效果，左上角偏亮模拟光源 */
+            background: radial-gradient(circle at 30% 30%, #ff5c5c, #b81212);
+            border: 3px solid #7a0000;
+            color: #ffffff;
+            /* 多层阴影：外阴影模拟投影，内阴影模拟顶部反光和底部凹陷 */
+            box-shadow: 
+                0 7px 14px rgba(0,0,0,0.35),
+                inset 0 3px 4px rgba(255,255,255,0.45),
+                inset 0 -2px 4px rgba(0,0,0,0.25);
+        }
+
+        /* 黑方棋子样式 */
+        .chess-piece.black {
+            background: radial-gradient(circle at 30% 30%, #4a4a4a, #0d0d0d);
+            border: 3px solid #000000;
+            color: #f2d391;
+            box-shadow: 
+                0 7px 14px rgba(0,0,0,0.45),
+                inset 0 3px 4px rgba(255,255,255,0.22),
+                inset 0 -2px 4px rgba(0,0,0,0.4);
+        }
+
+        /* 悬浮效果：模拟棋子拿起的状态 */
+        .chess-piece:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 12px 20px rgba(0,0,0,0.4),
+                inset 0 3px 4px rgba(255,255,255,0.45),
+                inset 0 -2px 4px rgba(0,0,0,0.25);
+        }
+
+        /* 点击效果：模拟棋子放下的状态 */
+        .chess-piece:active {
+            transform: translateY(-1px);
+            box-shadow: 
+                0 5px 10px rgba(0,0,0,0.3),
+                inset 0 3px 4px rgba(255,255,255,0.45),
+                inset 0 -2px 4px rgba(0,0,0,0.25);
+        }
+
+        /* 棋子内部的环形纹路，模仿真实象棋的凹纹 */
+        .chess-piece::before {
+            content: '';
+            position: absolute;
+            width: 72%;
+            height: 72%;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.18);
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="chess-piece red">帅</div>
+    <div class="chess-piece black">將</div>
+</body>
+</html>

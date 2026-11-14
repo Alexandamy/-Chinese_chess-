@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f0e6;
+}
+/* 落子坐标：x=col*60,y=row*60 col0-8 row0-9 */
+.board-wrapper {
+    border: 10px solid #7a4b20;
+    border-radius: 4px;
+    padding: 27px 30px;
+    background: #e6d2b3;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+.chess-board {
+    width: 486px;
+    height: 546px;
+    position: relative;
+    background: linear-gradient(to right,rgba(230,210,179,0.95),rgba(230,210,179,0.95)),repeating-linear-gradient(to bottom,#e0ccac 0,#e0ccac 1px,transparent 1px,transparent 8px);
+    background-size: 100% 100%,100% 8px;
+    border: 2px solid #5a3921;
+}
+.board-line {
+    position: absolute;
+    background: #5a3921;
+}
+.v-line {
+    width: 2px;
+    top: 0;
+    height: 240px;
+}
+.v-line.bottom {
+    top: 300px;
+}
+.v-line.full {
+    height: 100%;
+}
+.h-line {
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+.river {
+    position: absolute;
+    top: 240px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "楷体",serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #5a3921;
+    letter-spacing: 14px;
+}
+.river span:last-child {
+    transform: rotate(180deg);
+}
+/* 九宫：linear-gradient 画完整米字 */
+.palace {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(-45deg,transparent calc(50% - 1px),#5a3921 calc(50% - 1px),#5a3921 calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(45deg,transparent calc(50% - 1px),#5a3921 calc(50% - 1px),#5a3921 calc(50% + 1px),transparent calc(50% + 1px));
+}
+.palace-top {
+    top: 0;
+    left: 180px;
+}
+.palace-bottom {
+    top: 420px;
+    left: 180px;
+}
+#pieceContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* 棋子通用样式 */
+.chess-piece {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "楷体", "KaiTi", "STKaiti", serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: absolute;
+    user-select: none;
+    z-index: 10;
+}
+/* 红方棋子样式 */
+.chess-piece.red {
+    background: radial-gradient(circle at 30% 30%, #ff5c5c, #b81212);
+    border: 3px solid #7a0000;
+    color: #ffffff;
+    box-shadow: 
+        0 4px 8px rgba(0,0,0,0.35),
+        inset 0 2px 3px rgba(255,255,255,0.45),
+        inset 0 -1px 2px rgba(0,0,0,0.25);
+}
+/* 黑方棋子样式 */
+.chess-piece.black {
+    background: radial-gradient(circle at 30% 30%, #4a4a4a, #0d0d0d);
+    border: 3px solid #000000;
+    color: #f2d391;
+    box-shadow: 
+        0 4px 8px rgba(0,0,0,0.45),
+        inset 0 2px 3px rgba(255,255,255,0.22),
+        inset 0 -1px 2px rgba(0,0,0,0.4);
+}
+/* 悬浮效果 */
+.chess-piece:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 7px 12px rgba(0,0,0,0.4),
+        inset 0 2px 3px rgba(255,255,255,0.45),
+        inset 0 -1px 2px rgba(0,0,0,0.25);
+}
+/* 选中效果 */
+.chess-piece.selected {
+    border-color: #ffeb3b;
+    box-shadow: 
+        0 0 0 3px #ffeb3b,
+        0 7px 12px rgba(0,0,0,0.4),
+        inset 0 2px 3px rgba(255,255,255,0.45),
+        inset 0 -1px 2px rgba(0,0,0,0.25);
+}
+/* 棋子内部的环形纹路 */
+.chess-piece::before {
+    content: '';
+    position: absolute;
+    width: 72%;
+    height: 72%;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.18);
+    box-sizing: border-box;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国象棋</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="board-wrapper">
+        <div class="chess-board" id="chessBoard">
+            <!-- 棋盘线 -->
+            <div class="board-line v-line full" style="left:0"></div>
+            <div class="board-line v-line full" style="left:480px"></div>
+            <div class="board-line v-line" style="left:60px"></div>
+            <div class="board-line v-line" style="left:120px"></div>
+            <div class="board-line v-line" style="left:180px"></div>
+            <div class="board-line v-line" style="left:240px"></div>
+            <div class="board-line v-line" style="left:300px"></div>
+            <div class="board-line v-line" style="left:360px"></div>
+            <div class="board-line v-line" style="left:420px"></div>
+            <div class="board-line v-line bottom" style="left:60px"></div>
+            <div class="board-line v-line bottom" style="left:120px"></div>
+            <div class="board-line v-line bottom" style="left:180px"></div>
+            <div class="board-line v-line bottom" style="left:240px"></div>
+            <div class="board-line v-line bottom" style="left:300px"></div>
+            <div class="board-line v-line bottom" style="left:360px"></div>
+            <div class="board-line v-line bottom" style="left:420px"></div>
+            
+            <div class="board-line h-line" style="top:0"></div>
+            <div class="board-line h-line" style="top:60px"></div>
+            <div class="board-line h-line" style="top:120px"></div>
+            <div class="board-line h-line" style="top:180px"></div>
+            <div class="board-line h-line" style="top:240px"></div>
+            <div class="board-line h-line" style="top:300px"></div>
+            <div class="board-line h-line" style="top:360px"></div>
+            <div class="board-line h-line" style="top:420px"></div>
+            <div class="board-line h-line" style="top:480px"></div>
+            <div class="board-line h-line" style="top:540px"></div>
+            
+            <div class="palace palace-top"></div>
+            <div class="palace palace-bottom"></div>
+            <div class="river"><span>楚河</span><span>汉界</span></div>
+            
+            <!-- 棋子容器，js动态渲染 -->
+            <div id="pieceContainer"></div>
+        </div>
+    </div>
+
+    <script src="./js/boardData.js"></script>
+    <script src="./js/rule.js"></script>
+    <script src="./js/render.js"></script>
+    <script src="./js/event.js"></script>
+    <script src="./js/winModal.js"></script>
+</body>
+</html>

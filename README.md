@@ -8,7 +8,7 @@ Implementation of Chinese chess software functions: a web-based Chinese chess mi
 - 基础走棋规则判断（马蹩腿、炮架、将帅不能对面等）
 - 重置棋局功能
 ## 在线体验
-https://alexandamy.github.io/Chinese_chess/index.html
+https://alexandamy.github.io/-Chinese_chess-/index.html
 ## 本地运行
 1. 下载仓库全部文件
 2. 直接双击 index.html 打开
